@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact - BOTANICA Sound System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">BOTANICA</a>
+            <div class="nav-links">
+                <a href="events.html">Events</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="fixed-bg" style="background-image: url('images/soundSystem2.jpg');"></div>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p>Get in touch for bookings and technical information</p>
+                <a href="#booking-form" class="button">Booking Form</a>
+            </div>
+        </section>
+        
+        <section id="booking-form" class="section content-section">
+            <h2>Booking Contact</h2>
+            <div class="form-container">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScALU2ZMiAqFJ9M-t73TX8eYaypfzIHULbuxkjWR9cvf7bPZQ/viewform?embedded=true" 
+                    loading="lazy"
+                    importance="low"
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
+        </section>
+
+        <div class="fixed-bg" style="background-image: url('images/soundSystem2.jpg');"></div>
+        <div class="parallax-divider"></div>
+        
+        <section class="contact-section">
+            <div class="contact-info">
+                <div class="contact-grid">
+                    <div class="contact-box">
+                        <h2>Bookings</h2>
+                        <p>For event bookings and general inquiries please fill out the form above. If you have something more specific in mind then feel free to send us a DM on instagram or facebook.</p>
+                    </div>
+                    <div class="contact-box">
+                        <h2>Technical Specs</h2>
+                        <p>If you would like to know more about our rig or any of the more technical aspects, shoot us a message on the socials.</p>
+                    </div>
+                    <div class="contact-box">
+                        <h2>Follow Us</h2>
+                        <div class="social-links">
+                            <a href="https://instagram.com/botanicasound"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/people/BotanicaSoundsystem/100093998809753/"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://instagram.com/botanicasound"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/people/BotanicaSoundsystem/100093998809753/"><i class="fab fa-facebook"></i></a>      
+            </div>
+            <p>&copy; <span id="year"></span> BOTANICA Sound System. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
