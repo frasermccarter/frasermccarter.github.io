@@ -180,9 +180,28 @@ nav.scrolled .nav-links a:hover {
     padding: 2rem;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .button {
+        font-size: 1.5rem;
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
     .hero-content {
-        padding: 0 1.5rem;
+        padding: 1rem;
     }
 }
 
