@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events - BOTANICA Sound System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -20,7 +19,8 @@
     </nav>
 
     <main>
-        <section class="hero" style="background-image: url('images/crowd.webp');">
+        <div class="fixed-bg" style="background-image: url('images/crowd.webp');"></div>
+        <section class="hero">
             <div class="hero-content">
                 <h1>Upcoming Events</h1>
                 <p>Find out about all our upcoming events below</p>
@@ -30,12 +30,14 @@
         </section>
 
         <section id="event-calendar" class="section content-section event-section">
-            <div class="section-background" style="background-image: url('images/will.webp');"></div>
             <div class="section-content">
+                <div class="fixed-bg" style="background-image: url('images/will.webp');"></div>
                 <h2>Event Calendar</h2>
                 <div class="calendar-container">
                     <iframe 
                         src="https://calendar.google.com/calendar/embed?src=f340032cb75f08daf18360203b95e73eb8427e89f77d4f2bc1535a2065614695%40group.calendar.google.com&ctz=Europe%2FLondon" 
+                        loading="lazy"
+                        importance="low"
                         frameborder="0" 
                         scrolling="no">
                     </iframe>
@@ -43,7 +45,8 @@
             </div>
         </section>
 
-        <div class="parallax-divider" style="background-image: url('images/crowd.webp');"></div>
+        <div class="fixed-bg" style="background-image: url('images/crowd.jpg');"></div>
+        <div class="parallax-divider"></div>
 
         <section id="previous-events" class="section content-section">
             <h2>Previous Events</h2>

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOTANICA Sound System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -20,8 +19,9 @@
     </nav>
 
     <main>
+        <div class="fixed-bg"></div>
         <section class="hero">
-            <div class="hero-content"">
+            <div class="hero-content">
                 <h1>BOTANICA</h1>
                 <p>Bringing rumbles from the heart of Edinburgh</p>
                 <a href="events.html" class="button">Upcoming Events</a>
@@ -52,18 +52,21 @@
             </div>
         </section>
 
-        <div class="parallax-divider" style="background-image: url('images/banner.jpg');"></div>
+        <div class="fixed-bg" style="background-image: url('images/banner.jpg');"></div>
+        <div class="parallax-divider"></div>
 
         <section class="section content-section instagram-section">
             <h2>Latest Posts</h2>
-            <div class="instagram-feed">
+            <div class="instagram-feed"                         loading="lazy"
+            importance="low">
                 <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
                 <script src="https://static.elfsight.com/platform/platform.js" async></script>
                 <div class="elfsight-app-796bced1-167e-4afb-9d96-24cbe56f1ffb" data-elfsight-app-lazy></div>
             </div>
         </section>
 
-        <div class="parallax-divider" style="background-image: url('images/banner.jpg');"></div>
+        <div class="fixed-bg" style="background-image: url('images/banner.jpg');"></div>
+        <div class="parallax-divider"></div>
 
         <section class="section content-section">
             <h2>The System in Action</h2>

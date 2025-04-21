@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Gochi Hand';
+    src: url('fonts/GochiHand-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --primary: rgb(14, 38, 14);
     --secondary: #e37a09;
@@ -136,35 +144,42 @@ nav.scrolled .nav-links a:hover {
     transform: rotate(8deg);
 }
 
+.fixed-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('images/banner.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -2;
+}
+
 .hero {
-    min-height: 100vh;
     position: relative;
+    z-index: 1;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    background: url(images/banner.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: inherit;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    transform: translateZ(-1px) scale(1.5);
-    z-index: -2;
+.hero-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--light);
 }
 
 .hero::after {
@@ -176,27 +191,6 @@ nav.scrolled .nav-links a:hover {
     bottom: 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: -1;
-}
-
-.hero-content {
-    position: relative;
-    max-width: 800px;
-    padding: 0 2rem;
-    z-index: 2;
-    transform: translateZ(0);
-}
-
-.hero h1 {
-    font-size: clamp(3rem, 8vw, 6rem);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    margin-bottom: 2rem;
-}
-
-.hero p {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    margin-bottom: 3rem;
-    opacity: 0.9;
 }
 
 @keyframes tiltShake {
