@@ -16,9 +16,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Create environment script
+      - name: Create config files
         run: |
-          echo "window.process = { env: { SHEETS_API_KEY: '${{ secrets.SHEETS_API_KEY }}' } };" > env.js
+          echo "const CONFIG = { SHEETS_API_KEY: '${{ secrets.SHEETS_API_KEY }}' };" > config.js
+          echo "window.ENV = { SHEETS_API_KEY: '${{ secrets.SHEETS_API_KEY }}' };" > env.js
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
