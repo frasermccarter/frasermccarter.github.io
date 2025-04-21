@@ -62,8 +62,9 @@ nav.scrolled .nav-links a:hover {
 }
 
 .nav-container {
-    width: min(1200px, 95%);
+    width: min(1200px, 100%);
     margin: 0 auto;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -868,4 +869,43 @@ nav.scrolled .nav-links a:hover {
 
 main {
     flex: 1;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+    
+    .content-section {
+        width: 100%;
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+    }
+    
+    .specs {
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+    
+    .instagram-feed {
+        width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+    
+    .spotify-grid {
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+    
+    .form-container {
+        width: 100%;
+        margin: 0;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
 }
