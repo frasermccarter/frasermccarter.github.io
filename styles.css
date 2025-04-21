@@ -178,30 +178,43 @@ nav.scrolled .nav-links a:hover {
     text-align: center;
     color: white;
     padding: 2rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 @media screen and (max-width: 768px) {
+    .hero-content {
+        padding: 1rem;
+    }
+
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        word-wrap: break-word;
+        margin: 0 auto;
+        max-width: 90%;
     }
     
     .hero-content p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        padding: 0 1rem;
     }
 
     .button {
-        font-size: 1.5rem;
-        padding: 0.6rem 1.5rem;
+        font-size: 1.3rem;
+        padding: 0.5rem 1.2rem;
     }
 }
 
 @media screen and (max-width: 480px) {
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
+        max-width: 85%;
     }
     
     .hero-content {
-        padding: 1rem;
+        padding: 0.8rem;
     }
 }
 
@@ -224,7 +237,6 @@ nav.scrolled .nav-links a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
     z-index: -1;
 }
 
