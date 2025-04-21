@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - BOTANICA Sound System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">BOTANICA</a>
+            <div class="nav-links">
+                <a href="events.html">Events</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" style="background-image: url('images/crowd.webp');">
+            <div class="hero-content">
+                <h1>Upcoming Events</h1>
+                <p>Find out about all our upcoming events below</p>
+                <a href="#event-calendar" class="button">Event Calendar</a>
+                <a href="#previous-events" class="button">Previous Events</a>
+            </div>
+        </section>
+
+        <section id="event-calendar" class="section content-section event-section">
+            <div class="section-background" style="background-image: url('images/will.webp');"></div>
+            <div class="section-content">
+                <h2>Event Calendar</h2>
+                <div class="calendar-container">
+                    <iframe 
+                        src="https://calendar.google.com/calendar/embed?src=f340032cb75f08daf18360203b95e73eb8427e89f77d4f2bc1535a2065614695%40group.calendar.google.com&ctz=Europe%2FLondon" 
+                        frameborder="0" 
+                        scrolling="no">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <div class="parallax-divider" style="background-image: url('images/crowd.webp');"></div>
+
+        <section id="previous-events" class="section content-section">
+            <h2>Previous Events</h2>
+            <div class="events-carousel">
+                <button class="carousel-button prev" aria-label="Previous slide">‹</button>
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="images/will.webp" alt="Steampunk Session">
+                            <h2>Steampunk - Beats, Burritos & Barber</h2>
+                        </div>
+                        <div class="event-content">
+                            <p class="date">April 13, 2025</p>
+                            <p>Steampunk hosted the return of Beats, Burritos and Barber! This was a super popular event they held back in 2023 and since then many people had asked for it to come back. So they made that happen, with the return of Bonnie Burritos to the terrace, Botanica Sound System DJing Reggae and Benjamin Barber offering fresh trims! The event ran all day (from 10am to 5pm).</p>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="images/bassGarden.jpeg" alt="Bass Garden">
+                            <h2>End of Semester Showdown</h2>
+                        </div>
+                        <div class="event-content">
+                            <p class="date">April 11, 2025</p>
+                            <p>Get ready to immerse yourself in sound system culture with Botanica for one last time before the semester ends! Heavyweight tunes all night with some Wicked Student DJs bringing the highest energy to club, the best vibes for the last dance of the semester!</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button next" aria-label="Next slide">›</button>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://instagram.com/botanicasound"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/people/BotanicaSoundsystem/100093998809753/"><i class="fab fa-facebook"></i></a>      
+            </div>
+            <p>&copy; <span id="year"></span> BOTANICA Sound System. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
