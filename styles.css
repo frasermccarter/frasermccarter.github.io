@@ -172,18 +172,18 @@ nav.scrolled .nav-links a:hover {
 }
 
 @media (max-width: 800px) {
-    /* .hero-content { */
-        /* padding: 0 1.5rem; */
-    /* } */
+    .hero-content {
+        padding: 0 1.5rem;
+    }
     
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 0.5rem;
         padding: 0 1rem;
     }
     
     .hero-content p {
         font-size: 1.2rem;
-        /* padding: 0 1rem; */
+        padding: 0 1rem;
     }
 }
 
