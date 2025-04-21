@@ -2,22 +2,6 @@ const SHEET_ID = '1RycWZM7wmHGTZ0FL_lvWerayks6p9nbiWquuI8ZpGjI';
 const SHEET_NAME = 'Sheet1';
 const SHEET_RANGE = 'A3:D100';
 
-// Add API key handling
-const getApiKey = () => {
-    // Try all possible sources for API key
-    if (typeof CONFIG !== 'undefined' && CONFIG.SHEETS_API_KEY) {
-        return CONFIG.SHEETS_API_KEY;
-    }
-    if (typeof window !== 'undefined' && window.ENV && window.ENV.SHEETS_API_KEY) {
-        return window.ENV.SHEETS_API_KEY;
-    }
-    if (typeof process !== 'undefined' && process.env && process.env.SHEETS_API_KEY) {
-        return process.env.SHEETS_API_KEY;
-    }
-    console.error('No API key found in any configuration source');
-    return null;
-};
-
 function getGoogleDriveImageUrl(url) {
     if (!url) return 'images/will.webp';
     
@@ -43,9 +27,10 @@ async function loadEvents() {
     const container = document.querySelector('.events-container');
     container.innerHTML = '<div class="loading">Loading events...</div>';
     
-    const apiKey = getApiKey();
+    // Get API key from API_CONFIG (created by GitHub Actions)
+    const apiKey = typeof API_CONFIG !== 'undefined' ? API_CONFIG.SHEETS_API_KEY : '';
     if (!apiKey) {
-        container.innerHTML = '<div class="error">Configuration error: No API key available</div>';
+        container.innerHTML = '<div class="error">API configuration missing</div>';
         return;
     }
     
@@ -95,8 +80,7 @@ async function loadEvents() {
                     imageUrl: imageUrl
                 };
             })
-            .filter(event => event !== null)
-            .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort in reverse chronological order
+            .filter(event => event !== null);
 
         console.log('Processed events:', events); // Debug log
 
