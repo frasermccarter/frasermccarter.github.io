@@ -569,7 +569,6 @@ nav.scrolled .nav-links a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
 }
 
 .calendar-container {
@@ -735,7 +734,8 @@ nav.scrolled .nav-links a:hover {
 }
 
 .site-footer {
-    background: #111111;
+    background: var(--dark);
+    color: var(--light);
     padding: 1.5rem 0;
     margin-top: auto;
 }
