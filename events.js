@@ -4,15 +4,17 @@ const SHEET_RANGE = 'A3:D100';
 
 // Add API key handling
 const getApiKey = () => {
-    // Try environment variable first (for GitHub Pages)
-    if (typeof process !== 'undefined' && process.env && process.env.SHEETS_API_KEY) {
-        return process.env.SHEETS_API_KEY;
-    }
-    // Then try CONFIG object (for local development)
+    // Try all possible sources for API key
     if (typeof CONFIG !== 'undefined' && CONFIG.SHEETS_API_KEY) {
         return CONFIG.SHEETS_API_KEY;
     }
-    console.error('No API key found');
+    if (typeof window !== 'undefined' && window.ENV && window.ENV.SHEETS_API_KEY) {
+        return window.ENV.SHEETS_API_KEY;
+    }
+    if (typeof process !== 'undefined' && process.env && process.env.SHEETS_API_KEY) {
+        return process.env.SHEETS_API_KEY;
+    }
+    console.error('No API key found in any configuration source');
     return null;
 };
 
