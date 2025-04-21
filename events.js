@@ -2,6 +2,20 @@ const SHEET_ID = '1RycWZM7wmHGTZ0FL_lvWerayks6p9nbiWquuI8ZpGjI';
 const SHEET_NAME = 'Sheet1';
 const SHEET_RANGE = 'A3:D100';
 
+// Add API key handling
+const getApiKey = () => {
+    // Try environment variable first (for GitHub Pages)
+    if (typeof process !== 'undefined' && process.env && process.env.SHEETS_API_KEY) {
+        return process.env.SHEETS_API_KEY;
+    }
+    // Then try CONFIG object (for local development)
+    if (typeof CONFIG !== 'undefined' && CONFIG.SHEETS_API_KEY) {
+        return CONFIG.SHEETS_API_KEY;
+    }
+    console.error('No API key found');
+    return null;
+};
+
 function getGoogleDriveImageUrl(url) {
     if (!url) return 'images/will.webp';
     
@@ -27,7 +41,13 @@ async function loadEvents() {
     const container = document.querySelector('.events-container');
     container.innerHTML = '<div class="loading">Loading events...</div>';
     
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!${SHEET_RANGE}?key=${CONFIG.SHEETS_API_KEY}`;
+    const apiKey = getApiKey();
+    if (!apiKey) {
+        container.innerHTML = '<div class="error">Configuration error: No API key available</div>';
+        return;
+    }
+    
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!${SHEET_RANGE}?key=${apiKey}`;
     
     try {
         const response = await fetch(url);

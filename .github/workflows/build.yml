@@ -10,15 +10,15 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Create config file
+      - name: Create environment script
         run: |
-          echo "const CONFIG = {" >> config.js
-          echo "  SHEETS_API_KEY: '${{ secrets.SHEETS_API_KEY }}'" >> config.js
-          echo "};" >> config.js
+          echo "window.process = { env: { SHEETS_API_KEY: '${{ secrets.SHEETS_API_KEY }}' } };" > env.js
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
