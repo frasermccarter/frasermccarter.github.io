@@ -27,11 +27,11 @@ async function loadEvents() {
     const container = document.querySelector('.events-container');
     container.innerHTML = '<div class="loading">Loading events...</div>';
     
-    // Get API key with fallback
+    // Ensure api-config.js is loaded before accessing API_CONFIG
     const apiKey = window.API_CONFIG?.SHEETS_API_KEY || '';
-    if (!apiKey) {
-        console.error('API key not found');
-        container.innerHTML = '<div class="error">Configuration error</div>';
+    if (!apiKey || apiKey === 'AIzaSyDE4GUhgJpKM7jDNSCZ4ztBXToJ05wS2l0') {
+        console.error('Valid API key not found. Make sure api-config.js is properly configured.');
+        container.innerHTML = '<div class="error">API configuration error</div>';
         return;
     }
     
