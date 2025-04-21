@@ -170,6 +170,12 @@ nav.scrolled .nav-links a:hover {
     padding: 2rem;
 }
 
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 1.5rem;
+    }
+}
+
 .hero-content h1 {
     font-size: 5rem;
     color: var(--light);
