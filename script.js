@@ -38,40 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Remove the events carousel code from here as it's handled in events.js
     const eventsContainer = document.querySelector('.events-container');
-    const slides = document.querySelectorAll('.event-card');
-    const prevBtn = document.querySelector('.carousel-button.prev');
-    const nextBtn = document.querySelector('.carousel-button.next');
-    
-    if (eventsContainer && slides.length > 0 && prevBtn && nextBtn) {
-        let currentSlide = 0;
-        
-        // Initialize first slide
-        slides[0].classList.add('active');
-        
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.add('active');
-                    slide.style.transform = 'translateX(0)';
-                } else {
-                    slide.classList.remove('active');
-                    slide.style.transform = i < index ? 'translateX(-100%)' : 'translateX(100%)';
-                }
-            });
-        }
-        
-        prevBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        });
-        
-        nextBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        });
-
-        // Show initial slide
-        showSlide(0);
+    if (eventsContainer) {
+        // Initialize the events system
+        loadEvents();
     }
 });

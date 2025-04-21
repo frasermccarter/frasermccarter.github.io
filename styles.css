@@ -408,7 +408,7 @@ nav.scrolled .nav-links a:hover {
     position: absolute;
     width: calc(100% - 2rem);
     height: 550px; /* Fixed height for consistency */
-    left: 0;
+    left: 1rem;  /* Added to center the card */
     opacity: 0;
     visibility: hidden;
     transform: translateX(100%);
@@ -417,7 +417,15 @@ nav.scrolled .nav-links a:hover {
     background: var(--light);
     display: flex;
     flex-direction: column;
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 1rem;
+    color: var(--text-dark);  /* Added to ensure text is visible */
+}
+
+.event-card.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    z-index: 1;  /* Added to ensure active card is on top */
 }
 
 .event-card h2 {
@@ -628,6 +636,7 @@ nav.scrolled .nav-links a:hover {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    padding: 1rem;
 }
 
 .event-card.active {
@@ -938,3 +947,9 @@ main {
         -webkit-transform: translateZ(0);
     }
 }
+
+/* .event-image img,
+.gallery-item img {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+} */
