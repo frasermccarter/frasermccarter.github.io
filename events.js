@@ -27,15 +27,7 @@ async function loadEvents() {
     const container = document.querySelector('.events-container');
     container.innerHTML = '<div class="loading">Loading events...</div>';
     
-    // Ensure api-config.js is loaded before accessing API_CONFIG
-    const apiKey = window.API_CONFIG?.SHEETS_API_KEY || '';
-    if (!apiKey || apiKey === 'AIzaSyDE4GUhgJpKM7jDNSCZ4ztBXToJ05wS2l0') {
-        console.error('Valid API key not found. Make sure api-config.js is properly configured.');
-        container.innerHTML = '<div class="error">API configuration error</div>';
-        return;
-    }
-    
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!${SHEET_RANGE}?key=${apiKey}`;
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!${SHEET_RANGE}?key=${CONFIG.SHEETS_API_KEY}`;
     
     try {
         const response = await fetch(url);
@@ -81,7 +73,8 @@ async function loadEvents() {
                     imageUrl: imageUrl
                 };
             })
-            .filter(event => event !== null);
+            .filter(event => event !== null)
+            .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort in reverse chronological order
 
         console.log('Processed events:', events); // Debug log
 
