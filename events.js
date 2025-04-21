@@ -27,10 +27,11 @@ async function loadEvents() {
     const container = document.querySelector('.events-container');
     container.innerHTML = '<div class="loading">Loading events...</div>';
     
-    // Get API key from API_CONFIG (created by GitHub Actions)
-    const apiKey = typeof API_CONFIG !== 'undefined' ? API_CONFIG.SHEETS_API_KEY : '';
+    // Get API key with fallback
+    const apiKey = window.API_CONFIG?.SHEETS_API_KEY || '';
     if (!apiKey) {
-        container.innerHTML = '<div class="error">API configuration missing</div>';
+        console.error('API key not found');
+        container.innerHTML = '<div class="error">Configuration error</div>';
         return;
     }
     

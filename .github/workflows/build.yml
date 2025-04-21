@@ -11,8 +11,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment: github-pages
-    env:
-      SHEETS_API_KEY: ${{ secrets.SHEETS_API_KEY }}
     
     steps:
       - name: Checkout
@@ -20,12 +18,13 @@ jobs:
 
       - name: Create environment file
         run: |
-          echo "const API_CONFIG = { SHEETS_API_KEY: '${{ secrets.SHEETS_API_KEY }}' };" > api-config.js
+          mkdir -p dist
+          cp -r * dist/ 2>/dev/null || :
+          echo "window.API_CONFIG = { SHEETS_API_KEY: '${{ secrets.SHEETS_API_KEY }}' };" > dist/api-config.js
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .
+          folder: dist
           branch: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
           clean: true
