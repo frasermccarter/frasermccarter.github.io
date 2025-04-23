@@ -1,19 +1,14 @@
 let currentIndex = 0;
 const DEFAULT_IMAGE = 'events/images/defaultPlaceholder.jpeg';
 
-function init() {
-    showEvents(pastEvents.events);
-}
-
 function showEvents(events) {
     const eventsContainer = document.getElementById('events-container');
     eventsContainer.innerHTML = '';
-    
+
     events.forEach((event, index) => {
         const eventCard = document.createElement('div');
-        eventCard.className = 'event-card' + (index === 0 ? ' active' : '');
-        eventCard.style.position = 'absolute';
-        eventCard.style.left = `${index * 100}%`;
+        eventCard.className = 'event-card' + (index === currentIndex ? ' active' : '');
+        eventCard.setAttribute('tabindex', index === currentIndex ? '0' : '-1');
         eventCard.innerHTML = `
             <div class="event-image">
                 <img src="${event.image || DEFAULT_IMAGE}" alt="${event.title}" onerror="this.src='${DEFAULT_IMAGE}'">
@@ -22,13 +17,27 @@ function showEvents(events) {
                 </div>
             </div>
             <div class="event-content">
-                <p class="date">${event.date}</p>
+                <div class="date">${event.date}</div>
                 <div class="description-container">
                     <p class="description">${event.description}</p>
                 </div>
             </div>
         `;
         eventsContainer.appendChild(eventCard);
+    });
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const cards = document.querySelectorAll('.event-card');
+    cards.forEach((card, idx) => {
+        if (idx === currentIndex) {
+            card.classList.add('active');
+            card.setAttribute('tabindex', '0');
+        } else {
+            card.classList.remove('active');
+            card.setAttribute('tabindex', '-1');
+        }
     });
 }
 
@@ -44,15 +53,16 @@ function nextEvent() {
     updateCarousel();
 }
 
-function updateCarousel() {
-    const cards = document.querySelectorAll('.event-card');
-    cards.forEach((card, index) => {
-        card.classList.remove('active');
-        if (index === currentIndex) {
-            card.classList.add('active');
-        }
-        card.style.transform = `translateX(${-currentIndex * 100}%)`;
-    });
+function handleKeydown(e) {
+    if (e.key === 'ArrowLeft') previousEvent();
+    if (e.key === 'ArrowRight') nextEvent();
+}
+
+function init() {
+    showEvents(pastEvents.events);
+    document.querySelector('.carousel-button.prev').onclick = previousEvent;
+    document.querySelector('.carousel-button.next').onclick = nextEvent;
+    document.addEventListener('keydown', handleKeydown);
 }
 
 window.addEventListener('DOMContentLoaded', init);
