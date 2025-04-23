@@ -51,7 +51,7 @@
             <h2>Previous Events</h2>
             <div class="events-carousel">
                 <button class="carousel-button prev" onclick="previousEvent()">‹</button>
-                <div class="events-container"></div>
+                <div id="events-container" class="events-container"></div>
                 <button class="carousel-button next" onclick="nextEvent()">›</button>
             </div>
         </section>
@@ -69,8 +69,9 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-    <script src="config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
     <script src="events.js"></script>
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

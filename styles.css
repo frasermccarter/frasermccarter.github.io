@@ -625,6 +625,57 @@ nav.scrolled .nav-links a:hover {
 
 .events-carousel {
     position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.events-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.event-card {
+    min-width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.event-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.events-carousel {
+    position: relative;
     max-width: 800px;
     height: 600px; /* Set fixed height to contain cards */
     margin: 0 auto;
@@ -946,6 +997,40 @@ main {
         transform: translateZ(0);
         -webkit-transform: translateZ(0);
     }
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-card h3, .event-card p {
+    padding: 1rem;
+    margin: 0;
+}
+
+.event-card .date {
+    color: #888;
+    font-size: 0.9em;
 }
 
 /* .event-image img,
