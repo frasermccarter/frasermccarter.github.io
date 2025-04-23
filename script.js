@@ -37,11 +37,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Remove the events carousel code from here as it's handled in events.js
-    const eventsContainer = document.querySelector('.events-container');
-    if (eventsContainer) {
-        // Initialize the events system
-        loadEvents();
-    }
 });

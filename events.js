@@ -1,48 +1,34 @@
 let currentIndex = 0;
-const SHEET_ID = '1RycWZM7wmHGTZ0FL_lvWerayks6p9nbiWquuI8ZpGjI';
+const DEFAULT_IMAGE = 'events/images/defaultPlaceholder.jpeg';
 
 function init() {
-    Tabletop.init({
-        key: `https://docs.google.com/spreadsheets/d/e/2PACX-1vTjv5Id18zodr2j2TU7o5Xnmwyqnm7L2DWEDV2fw5noR5RLQKTWyYfs7Nh5s6y8V_hxCiEazSI0c0-R/pubhtml?gid=0&single=true`,
-        simpleSheet: true,
-        wanted: ['Sheet1'],
-        callback: showEvents
-    });
+    showEvents(pastEvents.events);
 }
 
-function showEvents(data) {
-    // Sort events by date (newest first)
-    data.sort((a, b) => parseDateDDMMYYYY(b.date) - parseDateDDMMYYYY(a.date));
-    
+function showEvents(events) {
     const eventsContainer = document.getElementById('events-container');
     eventsContainer.innerHTML = '';
-
-    data.forEach(event => {
+    
+    events.forEach((event, index) => {
         const eventCard = document.createElement('div');
-        eventCard.className = 'event-card';
+        eventCard.className = 'event-card' + (index === 0 ? ' active' : '');
+        eventCard.style.position = 'absolute';
+        eventCard.style.left = `${index * 100}%`;
         eventCard.innerHTML = `
-            <img src="${event.imageUrl}" alt="${event.title}">
-            <h3>${event.title}</h3>
-            <p class="date">${formatDate(event.date)}</p>
-            <p class="description">${event.description}</p>
+            <div class="event-image">
+                <img src="${event.image || DEFAULT_IMAGE}" alt="${event.title}" onerror="this.src='${DEFAULT_IMAGE}'">
+                <div class="event-title">
+                    <h2>${event.title}</h2>
+                </div>
+            </div>
+            <div class="event-content">
+                <p class="date">${event.date}</p>
+                <div class="description-container">
+                    <p class="description">${event.description}</p>
+                </div>
+            </div>
         `;
         eventsContainer.appendChild(eventCard);
-    });
-
-    updateCarousel();
-}
-
-function parseDateDDMMYYYY(dateStr) {
-    const [day, month, year] = dateStr.split('/').map(num => parseInt(num, 10));
-    return new Date(year, month - 1, day);
-}
-
-function formatDate(dateStr) {
-    const date = parseDateDDMMYYYY(dateStr);
-    return date.toLocaleDateString('en-GB', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
     });
 }
 
@@ -59,9 +45,14 @@ function nextEvent() {
 }
 
 function updateCarousel() {
-    const container = document.getElementById('events-container');
-    const offset = -currentIndex * 100;
-    container.style.transform = `translateX(${offset}%)`;
+    const cards = document.querySelectorAll('.event-card');
+    cards.forEach((card, index) => {
+        card.classList.remove('active');
+        if (index === currentIndex) {
+            card.classList.add('active');
+        }
+        card.style.transform = `translateX(${-currentIndex * 100}%)`;
+    });
 }
 
 window.addEventListener('DOMContentLoaded', init);
