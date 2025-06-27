@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Events - BOTANICA Sound System</title>
+    <title>Merch - BOTANICA Sound System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -30,46 +30,43 @@
         <div class="fixed-bg" style="background-image: url('images/crowd.webp');"></div>
         <section class="hero">
             <div class="hero-content">
-                <h1>Upcoming Events</h1>
-                <p>Find out about all our upcoming events below</p>
-                <a href="#event-calendar" class="button">Event Calendar</a>
-                <a href="#previous-events" class="button">Previous Events</a>
+                <h1>Botanica Merch</h1>
+                <p>You Guys Asked for It - Merch is Finally Here</p>
+                <a href="#catalog" class="button">Catalog</a>
             </div>
         </section>
 
-        <section id="event-calendar" class="section content-section" style="padding: 20px 3rem;">
-            <div class="section-content">
-                <iframe src="https://embed.styledcalendar.com/#aDx5TT4992qQ351jaWgj" title="Styled Calendar"
-                        class="styled-calendar-container" style="width: 100%; border: none;" data-cy="calendar-embed-iframe"></iframe>
-                    <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
-                </div>
-            </div>
-        </section>
-
-        <div class="fixed-bg" style="background-image: url('images/crowd.webp');"></div>
-        <div class="parallax-divider">
-            <h2>Previous Events.</h2>
-        </div>
-
-        <section id="previous-events" class="section content-section">
+        <section id="catalog" class="section content-section">
+            <h2>Merch Catalog.</h2>
             <div style="padding: 0% 5%;">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </div>
-            <div class="gallery gallery-scroll">
-                <div class="gallery-item">
-                    <img src="events/images/461773010_369169652829054_2677825001472313275_n.webp" alt="Gallery Image 1">
+            <div class="merch-container">
+                <div class="merch-item">
+                    <img src="images/shirt.png" alt="Botanica T-Shirt" />
+                    <h3>Botanica T-Shirt</h3>
+                    <p>Price: £20.00</p>
+                    <!-- <button class="add-to-cart">Add to Cart</button> -->
                 </div>
-                <div class="gallery-item">
-                    <img src="events/images/497675649_18277213774252590_4839546154481906041_n.jpg" alt="Gallery Image 2">
+                <div class="merch-item">
+                    <img src="images/hoodie.webp" alt="Botanica Hoodie" />
+                    <h3>Botanica Hoodie</h3>
+                    <p>Price: £35.00</p>
+                    <!-- <button class="add-to-cart">Add to Cart</button> -->
                 </div>
-                <div class="gallery-item">
-                    <img src="events/images/497675682_18139619386400958_3040290399800779727_n.jpg" alt="Gallery Image 3">
+                <div class="merch-item">
+                    <img src="images/merch/sticker.webp" alt="Botanica Sticker Pack" />
+                    <h3>Botanica Sticker Pack</h3>
+                    <p>Price: £5.00</p>
+                    <!-- <button class="add-to-cart">Add to Cart</button> -->
                 </div>
-                <div class="gallery-item">
-                    <img src="images/soundSystem.jpg" alt="Gallery Image 4">
+                <div class="merch-item">
+                    <img src="images/cap.webp" alt="Botanica Cap" />
+                    <h3>Botanica Cap</h3>
+                    <p>Price: £15.00</p>
+                    <!-- <button class="add-to-cart">Add to Cart</button> -->
                 </div>
-                <!-- Add more images as needed -->
             </div>
         </section>
     </main>
@@ -86,8 +83,6 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-    <!-- <script src="events/events-data.js"></script>
-    <script src="events.js"></script> -->
     <script src="script.js"></script>
 </body>
 </html>
