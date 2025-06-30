@@ -529,6 +529,9 @@ img.logo {
         width: 25%;
         height: auto;
     }
+    .leaf .bottom-left, .leaf .bottom-right {
+        display: none;
+    }
     img.logo {
         height: 8rem;
     }
