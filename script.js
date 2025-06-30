@@ -38,3 +38,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+(function() {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const nav = document.querySelector('nav');
+    let isMobile = () => window.matchMedia('(max-width: 600px)').matches;
+
+    function onScroll() {
+        if (!isMobile()) {
+            nav.style.transform = '';
+            nav.style.transition = '';
+            return;
+        }
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > 40) {
+                    // Scrolling down
+                    nav.style.transform = 'translateY(-120%)';
+                    nav.style.transition = 'transform 0.3s';
+                } else {
+                    // Scrolling up
+                    nav.style.transform = 'translateY(0)';
+                    nav.style.transition = 'transform 0.3s';
+                }
+                lastScrollY = currentScrollY;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+        if (!isMobile()) {
+            nav.style.transform = '';
+            nav.style.transition = '';
+        }
+    });
+})();
