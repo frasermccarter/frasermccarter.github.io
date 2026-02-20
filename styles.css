@@ -1,5 +1,6 @@
 :root {
-    --primary: rgb(246, 236, 53);
+    --primary: rgb(250, 225, 38);
+        /* --primary: rgb(246, 236, 53); */
     --secondary: rgb(251, 161, 88);
     --mainText: #c97900;
     --light: #f4f1e9;
@@ -278,7 +279,10 @@ html, body {
     }
     .hero nav .nav-links a {
         margin-left: 0.5rem;
-        font-size: 0.9rem;
+        font-size: 1.25rem;
+    }
+    .hero-content img {
+        width: 70%;
     }
 
     /* about page and text section adjustments */
