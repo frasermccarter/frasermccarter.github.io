@@ -109,14 +109,6 @@ html, body {
     z-index: 10;
 }
 
-.hero nav a.logo {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: url('logo.png') center/contain no-repeat;
-    text-indent: -9999px;
-}
-
 .hero nav .nav-links {
     display: inline-block;
     margin-left: 1.5rem;
@@ -132,13 +124,20 @@ html, body {
     font-weight: bold;
 }
 
+.hero nav .nav-links a:hover, .hero-logo:hover, .social-links a:hover {
+    color: var(--primary);
+    text-shadow: var(--shadow) var(--secondary);
+    opacity: 0.5;
+}
+
 /* text section below hero */
 .text-section {
     padding: 10px 0;
     background-image: url('assets/text-section-background-image.jpg');
     background-size: cover;
     background-position: center;
-    text-align: center;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .text-content {
@@ -153,6 +152,7 @@ html, body {
     color: var(--secondary);
     text-shadow: var(--shadow) var(--primary);
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .text-content p {
@@ -160,9 +160,14 @@ html, body {
     color: var(--dark);
     line-height: 1.6;
     padding: 10px 100px;
+    white-space-collapse: preserve;
 }
 
 /* about page images laid out in a row */
+.about-images {
+    text-align: center;
+    margin: 20px 0;
+}
 .about-image {
     display: inline-block;
     width: 30%;
@@ -174,15 +179,17 @@ html, body {
 /* spec list styling */
 .spec-list {
     text-align: left;
-    padding-left: 2rem;
+    padding-left: 10rem;
     color: var(--dark);
     font-size: 1.1rem;
     line-height: 1.8;
+    column-count: 2;
 }
 
 .spec-list li {
     margin-bottom: 0.5rem;
     color: var(--dark);
+    break-inside: avoid-column;
 }
 
 
@@ -255,11 +262,19 @@ html, body {
 
 
 @media (max-width: 768px) {
+    :root {
+        --shadow: 1px 1px 0px;
+        --footerShadow: 0.5px 0.5px 0px;
+    }
+
     .hero-content h1 {
         font-size: 2rem;
     }
     .hero-content p {
         font-size: 1rem;
+    }
+    .hero nav{
+        bottom: 150px;
     }
     .hero nav .nav-links a {
         margin-left: 0.5rem;
@@ -268,8 +283,9 @@ html, body {
 
     /* about page and text section adjustments */
     .text-content { margin: 20px; padding: 20px; height: auto; }
-    .text-content p { padding: 10px 20px; font-size: 1rem; }
+    .text-content p { padding: 10px 20px; font-size: 0.75rem; }
     .about-image { display: block; width: 100%; margin: 0 0 1rem; }
+    .spec-list { padding-left: 1rem; font-size: 0.75rem; column-count: 1; }
 
     /* footer responsive adjustments */
     .footer-content {
@@ -291,3 +307,8 @@ html, body {
     }
 }
 
+@media (max-height: 450px) {
+    .hero nav {
+        bottom: 30px;
+    }
+}
