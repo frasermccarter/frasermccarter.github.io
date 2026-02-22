@@ -145,7 +145,9 @@ html, body {
     margin: 40px;
     background-color: var(--light);
     padding: 40px;
-    /* height: calc(100vh - 160px); full viewport height minus padding */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .text-content h2 {
@@ -180,7 +182,6 @@ html, body {
 /* spec list styling */
 .spec-list {
     text-align: left;
-    padding-left: 10rem;
     color: var(--dark);
     font-size: 1.1rem;
     line-height: 1.8;
