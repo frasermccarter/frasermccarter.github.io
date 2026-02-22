@@ -187,6 +187,7 @@ html, body {
 .spec-list {
     text-align: left;
     color: var(--dark);
+    font-family: var(--mainText);
     font-size: 1.1rem;
     line-height: 1.8;
     column-count: 2;
